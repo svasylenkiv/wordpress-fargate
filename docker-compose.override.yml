@@ -1,0 +1,28 @@
+# docker-compose.override.yml
+# Цей файл НЕ використовується в CI/CD і на сервері.
+# Тільки для локальної розробки.
+
+services:
+
+  wordpress:
+    environment:
+      # Перевизначити для dev
+      WP_DEBUG: "true"
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_HOME', 'http://localhost');
+        define('WP_SITEURL', 'http://localhost');
+        define('WP_DEBUG', true);
+        define('WP_DEBUG_LOG', true);
+        define('WP_DEBUG_DISPLAY', false);
+        define('SCRIPT_DEBUG', true);
+        define('DISALLOW_FILE_EDIT', false);
+    # Live-маунт themes/plugins — розкоментуй після першого успішного `docker compose up`
+    # (bind mount з Windows ламає початкове копіювання WordPress у volume)
+    # volumes:
+    #   - ./src/themes:/var/www/html/wp-content/themes:delegated
+    #   - ./src/plugins:/var/www/html/wp-content/plugins:delegated
+
+  db:
+    # В dev — порт доступний з хоста (для підключення через TablePlus / DBeaver)
+    ports:
+      - "3306:3306"

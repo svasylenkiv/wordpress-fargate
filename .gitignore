@@ -1,0 +1,35 @@
+# ── Секрети (НІКОЛИ в git!) ───────────────────────────────────────────────────
+.env
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ── Terraform (будемо додавати пізніше) ──────────────────────────────────────
+**/.terraform/
+**/.terragrunt-cache/
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info
+*.tfvars
+!*.tfvars.example
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# ── Docker ────────────────────────────────────────────────────────────────────
+# wp-content (генерується, не комітимо — буде в EFS/volume)
+src/
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+logs/
