@@ -1,0 +1,9 @@
+# Власник всього репо — твій GitHub username
+*                           @YOUR_USERNAME
+
+# Infrastructure — будь-які зміни потребують review
+/infrastructure/            @YOUR_USERNAME
+/.github/workflows/         @YOUR_USERNAME
+
+# Docker images
+/docker/                    @YOUR_USERNAME
